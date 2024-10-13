@@ -1,2 +1,13 @@
-
-CREATE TABLE IF NOT EXISTS users(user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), email TEXT UNIQUE NOT NULL, firstname TEXT NOT NULL, lastname TEXT, gender TEXT, birthyear INT, city TEXT, country TEXT, disabled BOOLEAN);
+CREATE TABLE IF NOT EXISTS users (
+	user_id uuid DEFAULT gen_random_uuid() NOT NULL,
+	email text NOT NULL,
+	firstname text NOT NULL,
+	lastname text NULL,
+	gender text NULL,
+	birthyear int4 NULL,
+	city text NULL,
+	country text NULL,
+	disabled bool NULL,
+	CONSTRAINT users_email_key UNIQUE (email),
+	CONSTRAINT users_pkey PRIMARY KEY (user_id)
+);
